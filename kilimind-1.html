@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KiliMind — கிளி ஜோசியம் | தமிழ் ஜோதிடம்</title>
+<meta name="description" content="KiliMind - பாரம்பரிய கிளி ஜோசியம் ஆன்லைனில். உங்க பெயரும் பிறந்த தேதியும் கொடுங்க, கிளி உங்களுக்கான இன்றைய ஜோசியம், அதிர்ஷ்ட எண், நிறம், நேரம் மற்றும் பழமொழி தேர்வு செய்யும்.">
+<meta name="theme-color" content="#7A2333">
+<meta property="og:title" content="KiliMind — கிளி ஜோசியம்">
+<meta property="og:description" content="பாரம்பரிய தமிழ் கிளி ஜோசியம் ஆன்லைனில். உங்க அதிர்ஷ்ட எண், நிறம், நேரம் மற்றும் இன்றைய ஜோசியத்தை கிளி தேர்வு செய்யும்.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ta_IN">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn6acPC90ZXh0Pjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7EFE3;
+    --cream-2:#EFE3D0;
+    --maroon:#7A2333;
+    --maroon-deep:#5A1726;
+    --gold:#C99A3F;
+    --gold-soft:#E2C27A;
+    --green:#4F8B5B;
+    --ink:#2B1B14;
+    --paper:#FFFBF3;
+  }
+  [data-theme="dark"]{
+    --cream:#181210;
+    --cream-2:#241A18;
+    --maroon:#C9425A;
+    --maroon-deep:#3A1218;
+    --gold:#E2C27A;
+    --gold-soft:#F2DCA0;
+    --green:#7FC98C;
+    --ink:#F2E8DA;
+    --paper:#211814;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    font-family:'Catamaran', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    min-height:100vh;
+    width:100%;
+    transition:background .4s ease, color .4s ease;
+    overflow-x:hidden;
+  }
+  :focus-visible{
+    outline:2.5px solid var(--gold);
+    outline-offset:2px;
+    border-radius:4px;
+  }
+  .sr-only{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap;
+  }
+  .bg-texture{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: radial-gradient(circle at 20% 20%, var(--gold) 0%, transparent 1.2%),
+                       radial-gradient(circle at 80% 30%, var(--gold) 0%, transparent 1%),
+                       radial-gradient(circle at 50% 80%, var(--gold) 0%, transparent 1.2%),
+                       radial-gradient(circle at 10% 70%, var(--gold) 0%, transparent 1%),
+                       radial-gradient(circle at 90% 85%, var(--gold) 0%, transparent 1%);
+    opacity:.25;
+  }
+  .wrap{ position:relative; z-index:1; max-width:480px; margin:0 auto; padding:18px 16px 60px; width:100%; }
+
+  /* header */
+  .topbar{ display:flex; justify-content:space-between; align-items:center; padding:6px 2px 14px; }
+  .brand{ display:flex; align-items:center; gap:8px; font-weight:800; font-size:1.05rem; letter-spacing:.3px; color:var(--maroon); }
+  .brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
+
+  .toggle{
+    width:52px; height:28px; border-radius:20px; background:var(--cream-2);
+    border:1px solid var(--gold-soft); position:relative; cursor:pointer;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.15);
+  }
+  .toggle .knob{
+    position:absolute; top:2px; left:2px; width:22px; height:22px; border-radius:50%;
+    background:var(--gold); transition:left .3s ease, background .3s ease;
+    box-shadow:0 0 10px var(--gold);
+  }
+  [data-theme="dark"] .toggle .knob{ left:26px; background:var(--maroon); box-shadow:0 0 12px var(--maroon); }
+
+  /* garland divider */
+  .garland{ text-align:center; font-size:.85rem; letter-spacing:6px; color:var(--gold); opacity:.8; margin:4px 0 18px; }
+
+  /* hero */
+  .hero{ text-align:center; margin-bottom:22px; }
+  .hero h1{
+    font-size:clamp(1.5rem, 6vw, 1.9rem); font-weight:800; color:var(--maroon); line-height:1.25;
+  }
+  .hero p{
+    font-size:.85rem; color:var(--ink); opacity:.65; margin-top:6px; font-weight:500;
+  }
+
+  /* perch + parrot stage */
+  .stage{
+    position:relative; height:170px; display:flex; align-items:flex-end; justify-content:center;
+    margin-bottom:6px;
+  }
+  .perch{
+    position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+    width:130px; height:6px; background:linear-gradient(90deg, var(--maroon-deep), var(--gold), var(--maroon-deep));
+    border-radius:3px; opacity:.7;
+  }
+  .parrot{
+    font-size:4.2rem; position:relative; z-index:2;
+    transform-origin:bottom center;
+    animation: idle 3.2s ease-in-out infinite;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
+  }
+  @keyframes idle{
+    0%,100%{ transform: rotate(0deg) translateY(0); }
+    50%{ transform: rotate(-3deg) translateY(-3px); }
+  }
+  .parrot.peck{ animation: peck .6s ease 2; }
+  @keyframes peck{
+    0%,100%{ transform: rotate(0deg) translateY(0); }
+    30%{ transform: rotate(14deg) translateY(6px); }
+    60%{ transform: rotate(-6deg) translateY(0); }
+  }
+
+  .cards-fan{ position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; z-index:1; }
+  .mini-card{
+    width:30px; height:42px; border-radius:6px 6px 4px 4px;
+    background:linear-gradient(160deg, var(--maroon), var(--maroon-deep));
+    border:1px solid var(--gold-soft);
+    margin-left:-14px;
+    box-shadow:0 3px 6px rgba(0,0,0,.25);
+  }
+  .mini-card:first-child{ margin-left:0; }
+  .mini-card::after{
+    content:"✦"; display:block; text-align:center; color:var(--gold); font-size:.7rem; margin-top:14px;
+  }
+
+  /* form */
+  .panel{
+    background:var(--paper); border:1px solid var(--gold-soft); border-radius:18px;
+    padding:20px 18px; box-shadow:0 10px 28px rgba(0,0,0,.08);
+  }
+  .field{ margin-bottom:14px; }
+  .field label{
+    display:block; font-size:.78rem; font-weight:600; color:var(--maroon); margin-bottom:6px; letter-spacing:.2px;
+  }
+  .field input{
+    width:100%; padding:11px 13px; border-radius:10px; border:1.5px solid var(--gold-soft);
+    background:var(--cream); color:var(--ink); font-family:'Catamaran',sans-serif; font-size:.95rem;
+    outline:none; transition:border-color .2s ease;
+  }
+  .field input:focus{ border-color:var(--maroon); }
+  .field input[aria-invalid="true"]{ border-color:#B23A48; }
+  .field-msg{
+    min-height:18px; font-size:.74rem; color:#B23A48; margin-top:5px; font-weight:600;
+    opacity:0; transition:opacity .2s ease;
+  }
+  .field-msg.show{ opacity:1; }
+
+  /* mood selector */
+  .mood-label{
+    display:block; font-size:.78rem; font-weight:600; color:var(--maroon); margin-bottom:8px; letter-spacing:.2px;
+  }
+  .mood-grid{
+    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;
+  }
+  .mood-btn{
+    flex:1; min-width:calc(20% - 8px); padding:8px 4px; border-radius:10px;
+    border:1.5px solid var(--gold-soft); background:var(--cream);
+    color:var(--ink); font-family:'Catamaran',sans-serif; font-size:.78rem; font-weight:600;
+    cursor:pointer; text-align:center; transition:border-color .2s ease, background .2s ease;
+    display:flex; flex-direction:column; align-items:center; gap:3px;
+  }
+  .mood-btn .mood-icon{ font-size:1.2rem; }
+  .mood-btn:hover{ border-color:var(--maroon); }
+  .mood-btn.selected{
+    border-color:var(--maroon); background:var(--maroon); color:#FBF3E3;
+  }
+
+  .ask-btn{
+    width:100%; padding:14px; margin-top:6px; border:none; border-radius:12px;
+    background:linear-gradient(135deg, var(--green), #3a6b46);
+    color:#fff; font-family:'Catamaran',sans-serif; font-weight:700; font-size:1rem;
+    cursor:pointer; letter-spacing:.3px;
+    box-shadow:0 8px 18px rgba(79,139,91,.35);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .ask-btn:active{ transform:scale(.97); }
+  .ask-btn:disabled{ opacity:.6; cursor:wait; }
+
+  /* result card */
+  .result{
+    margin-top:18px; border-radius:18px; overflow:hidden;
+    background:linear-gradient(160deg, var(--maroon), var(--maroon-deep));
+    color:#FBF3E3; padding:0; max-height:0; opacity:0;
+    transition:max-height .5s ease, opacity .5s ease;
+  }
+  .result.show{ max-height:2400px; opacity:1; }
+  .result-inner{ padding:22px 20px 24px; position:relative; }
+  .result-inner::before{
+    content:""; position:absolute; inset:8px; border:1px solid rgba(226,194,122,.5); border-radius:12px; pointer-events:none;
+  }
+  .result-tag{ font-size:.7rem; letter-spacing:2px; color:var(--gold-soft); text-transform:uppercase; font-weight:700; }
+  .result-name{ font-size:1.15rem; font-weight:800; margin-top:4px; }
+  .fortune-text{ margin-top:14px; font-size:1.02rem; line-height:1.7; font-weight:500; }
+
+  /* affirmation */
+  .affirmation-box{
+    margin-top:12px; padding:10px 12px; background:rgba(255,255,255,.08);
+    border-radius:10px; border-left:3px solid var(--gold-soft);
+  }
+  .affirmation-text{ font-size:.9rem; font-style:italic; line-height:1.6; color:var(--gold-soft); }
+
+  /* mindset type */
+  .mindset-box{
+    margin-top:12px; display:flex; align-items:center; gap:10px;
+    padding:10px 12px; background:rgba(255,255,255,.08); border-radius:10px;
+  }
+  .mindset-icon{ font-size:1.4rem; }
+  .mindset-info .k{ font-size:.68rem; color:var(--gold-soft); letter-spacing:.5px; }
+  .mindset-info .v{ font-size:.95rem; font-weight:700; margin-top:2px; }
+
+  /* strength bars */
+  .strength-box{ margin-top:14px; }
+  .strength-title{ font-size:.7rem; letter-spacing:1.5px; color:var(--gold-soft); text-transform:uppercase; font-weight:700; margin-bottom:10px; }
+  .strength-row{ margin-bottom:10px; }
+  .strength-row .s-label{ display:flex; justify-content:space-between; font-size:.8rem; font-weight:600; margin-bottom:5px; }
+  .strength-row .s-pct{ font-size:.75rem; color:var(--gold-soft); }
+  .strength-track{
+    height:8px; background:rgba(255,255,255,.12); border-radius:20px; overflow:hidden;
+  }
+  .strength-fill{
+    height:100%; border-radius:20px;
+    background:linear-gradient(90deg, var(--gold-soft), #fff);
+    width:0%; transition:width 1s cubic-bezier(.22,1,.36,1);
+  }
+
+  .meta-row{ display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+  .meta-chip{
+    flex:1; background:rgba(255,255,255,.08); border-radius:10px; padding:10px 8px; text-align:center;
+  }
+  .meta-chip .k{ font-size:.68rem; color:var(--gold-soft); letter-spacing:.5px; }
+  .meta-chip .v{ font-size:1rem; font-weight:700; margin-top:3px; }
+  .meta-chip.wide{ flex:1 1 100%; text-align:left; display:flex; align-items:center; gap:8px; }
+  .meta-chip.wide .k{ white-space:nowrap; }
+  .swatch{ width:18px; height:18px; border-radius:50%; margin:0 auto 4px; border:1px solid rgba(255,255,255,.4); }
+
+  /* symbol explanation */
+  .symbol-explain{
+    margin-top:12px; padding:10px 12px; background:rgba(255,255,255,.07);
+    border-radius:10px; display:flex; align-items:flex-start; gap:10px;
+  }
+  .symbol-explain .sym-big{ font-size:1.6rem; flex-shrink:0; margin-top:2px; }
+  .symbol-explain .sym-desc .k{ font-size:.68rem; color:var(--gold-soft); letter-spacing:.5px; }
+  .symbol-explain .sym-desc .v{ font-size:.88rem; font-weight:600; margin-top:3px; line-height:1.4; }
+
+  .proverb-box{
+    margin-top:14px; padding-top:14px; border-top:1px dashed rgba(251,243,227,.3);
+  }
+  .proverb-tag{ font-size:.68rem; letter-spacing:1.5px; color:var(--gold-soft); text-transform:uppercase; font-weight:700; }
+  .proverb-text{ margin-top:6px; font-size:.92rem; font-style:italic; line-height:1.6; opacity:.95; }
+  .proverb-author{ font-size:.75rem; color:var(--gold-soft); margin-top:4px; opacity:.8; }
+
+  /* challenge */
+  .challenge-box{
+    margin-top:14px; padding:12px; background:rgba(255,255,255,.09);
+    border-radius:10px; border:1px dashed rgba(226,194,122,.4);
+  }
+  .challenge-tag{ font-size:.68rem; letter-spacing:1.5px; color:var(--gold-soft); text-transform:uppercase; font-weight:700; }
+  .challenge-text{ margin-top:6px; font-size:.95rem; font-weight:600; line-height:1.5; }
+
+  /* reflection question */
+  .reflect-box{
+    margin-top:14px; padding:12px; background:rgba(255,255,255,.07);
+    border-radius:10px; text-align:center;
+  }
+  .reflect-text{ font-size:.9rem; font-style:italic; line-height:1.6; opacity:.9; }
+
+  .btn-row{ display:flex; gap:10px; margin-top:16px; }
+  .again-btn, .share-btn{
+    flex:1; padding:11px; border-radius:10px; border:1px solid var(--gold-soft);
+    background:transparent; color:#FBF3E3; font-family:'Catamaran',sans-serif; font-weight:600; cursor:pointer;
+    font-size:.92rem;
+  }
+  .share-btn{ background:rgba(255,255,255,.08); }
+
+  .disclaimer{
+    margin-top:16px; font-size:.72rem; text-align:center; color:var(--ink); opacity:.5; line-height:1.5;
+  }
+
+  /* history section */
+  .history-section{ margin-top:22px; display:none; }
+  .history-section.show{ display:block; }
+  .history-title{
+    font-size:.85rem; font-weight:700; color:var(--maroon); letter-spacing:.3px; margin-bottom:10px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .history-list{ display:flex; flex-direction:column; gap:8px; }
+  .history-item{
+    background:var(--paper); border:1px solid var(--gold-soft); border-radius:12px;
+    padding:10px 12px; font-size:.8rem;
+  }
+  .history-item .hi-top{ display:flex; justify-content:space-between; gap:8px; font-weight:700; color:var(--maroon); }
+  .history-item .hi-date{ font-weight:500; opacity:.6; font-size:.72rem; }
+  .history-item .hi-fortune{ margin-top:4px; opacity:.85; line-height:1.5; }
+  .history-clear{
+    margin-top:10px; font-size:.74rem; background:none; border:none; color:var(--maroon);
+    text-decoration:underline; cursor:pointer; opacity:.7; padding:4px;
+  }
+
+  .social-row{
+    display:flex; justify-content:center; gap:18px; margin-top:24px;
+  }
+  .social-row a{
+    width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--paper); border:1px solid var(--gold-soft); color:var(--maroon);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .social-row a:hover, .social-row a:active{
+    transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.15);
+  }
+  .social-row svg{ width:18px; height:18px; fill:currentColor; }
+
+  .footer{
+    text-align:center; margin-top:14px; font-size:.75rem; color:var(--ink); opacity:.5;
+  }
+
+  /* toast */
+  .toast{
+    position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(20px);
+    background:var(--maroon-deep); color:#FBF3E3; padding:10px 18px; border-radius:30px;
+    font-size:.82rem; font-weight:600; box-shadow:0 8px 20px rgba(0,0,0,.35);
+    z-index:120; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* full-screen kili animation overlay */
+  .fs-overlay{
+    position:fixed; inset:0; z-index:80; display:none;
+    background:radial-gradient(circle at 50% 40%, rgba(40,20,15,.92), rgba(10,5,5,.97));
+    overflow:hidden;
+  }
+  .fs-overlay.active{ display:block; }
+  .fs-stage{ position:relative; width:100%; height:100%; }
+  .fs-card{
+    position:absolute; width:42px; height:60px; border-radius:7px 7px 5px 5px;
+    background:linear-gradient(160deg, var(--maroon), var(--maroon-deep));
+    border:1px solid var(--gold-soft);
+    box-shadow:0 4px 10px rgba(0,0,0,.5);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold); font-size:1.15rem;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .35s ease, box-shadow .35s ease;
+    opacity:0;
+  }
+  .fs-card.in{ opacity:1; }
+  .fs-card.faded{ opacity:.12; }
+  .fs-card.picked{
+    transform: scale(1.4) !important;
+    box-shadow:0 0 28px var(--gold), 0 0 50px rgba(201,154,63,.6);
+    z-index:6;
+  }
+  .fs-card.revealed .sym-back{ display:none; }
+  .fs-card.revealed .sym-front{ display:inline; }
+  .fs-card .sym-front{ display:none; }
+  .fs-card.flyout{
+    transform: translate(var(--flyx,0px), var(--flyy,-260px)) scale(1.7) rotate(8deg) !important;
+    opacity:0 !important;
+    transition: transform .55s ease, opacity .55s ease;
+  }
+  .fs-parrot{
+    position:absolute; font-size:3.4rem; z-index:10;
+    filter: drop-shadow(0 10px 16px rgba(0,0,0,.6));
+    transition: left .38s ease, top .38s ease, transform .25s ease;
+    transform: scaleX(1);
+  }
+  .fs-parrot.peck{ animation: fsPeck .35s ease; }
+  @keyframes fsPeck{
+    0%,100%{ transform: rotate(0deg) scale(1); }
+    50%{ transform: rotate(18deg) scale(1.08); }
+  }
+  .fs-caption{
+    position:absolute; bottom:8%; left:0; right:0; text-align:center;
+    color:var(--gold-soft); font-family:'Catamaran',sans-serif; font-weight:700;
+    font-size:1rem; letter-spacing:.5px; opacity:.9; padding:0 16px;
+  }
+
+  @media (max-width:380px){
+    .fs-card{ width:36px; height:52px; font-size:1rem; }
+    .fs-parrot{ font-size:2.8rem; }
+    .meta-chip{ padding:8px 6px; }
+    .mood-btn{ font-size:.7rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .parrot, .parrot.peck, .fs-parrot.peck{ animation:none; }
+    .fs-card, .fs-card.flyout, .fs-parrot{ transition-duration:.01s !important; }
+    .result, .toast{ transition-duration:.01s !important; }
+    .strength-fill{ transition-duration:.01s !important; }
+  }
+</style>
+</head>
+<body data-theme="light">
+<div class="bg-texture" aria-hidden="true"></div>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot" aria-hidden="true"></span> கிளிமைண்ட்</div>
+    <div class="toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="இருள்/வெளிச்சம் மாற்று" tabindex="0">
+      <div class="knob"></div>
+    </div>
+  </div>
+
+  <div class="garland" aria-hidden="true">✿ ❀ ✿ ❀ ✿ ❀ ✿ ❀ ✿</div>
+
+  <div class="hero">
+    <h1>கிளி ஜோசியம் கேளுங்க</h1>
+    <p>உங்க பெயரும் பிறந்த தேதியும் சொல்லுங்க, கிளி ஒரு சீட்டு எடுக்கும்</p>
+  </div>
+
+  <div class="stage">
+    <div class="perch" aria-hidden="true"></div>
+    <div class="cards-fan" aria-hidden="true">
+      <div class="mini-card"></div>
+      <div class="mini-card"></div>
+      <div class="mini-card"></div>
+      <div class="mini-card"></div>
+    </div>
+    <div class="parrot" id="parrot" aria-hidden="true">🦜</div>
+  </div>
+
+  <div class="panel" id="kiliForm">
+    <div class="field">
+      <label for="nameInput">உங்க பெயர்</label>
+      <input type="text" id="nameInput" placeholder="உ.ம். முத்துப்பிரியன்" aria-required="true" aria-describedby="nameMsg">
+      <div class="field-msg" id="nameMsg" role="alert"></div>
+    </div>
+    <div class="field">
+      <label for="dobInput">பிறந்த தேதி</label>
+      <input type="date" id="dobInput" aria-label="பிறந்த தேதி">
+    </div>
+
+    <div class="field">
+      <span class="mood-label">உங்கள் மனநிலை என்ன?</span>
+      <div class="mood-grid" id="moodGrid" role="group" aria-label="மனநிலை தேர்வு">
+        <button class="mood-btn" data-mood="மகிழ்ச்சி" aria-pressed="false">
+          <span class="mood-icon">😊</span><span>மகிழ்ச்சி</span>
+        </button>
+        <button class="mood-btn" data-mood="கவலை" aria-pressed="false">
+          <span class="mood-icon">😟</span><span>கவலை</span>
+        </button>
+        <button class="mood-btn" data-mood="தொழில்" aria-pressed="false">
+          <span class="mood-icon">💼</span><span>தொழில்</span>
+        </button>
+        <button class="mood-btn" data-mood="காதல்" aria-pressed="false">
+          <span class="mood-icon">❤️</span><span>காதல்</span>
+        </button>
+        <button class="mood-btn" data-mood="பணம்" aria-pressed="false">
+          <span class="mood-icon">💰</span><span>பணம்</span>
+        </button>
+      </div>
+    </div>
+
+    <button type="button" class="ask-btn" id="askBtn" aria-label="கிளியை கேளுங்க, ஜோசியம் பார்க்க">🦜 கிளியை கேளுங்க</button>
+  </div>
+
+  <div class="result" id="resultBox" aria-live="polite">
+    <div class="result-inner">
+      <div class="result-tag">இன்றைய ஜோசியம்</div>
+      <div class="result-name" id="resName">—</div>
+      <div class="fortune-text" id="fortuneText">—</div>
+
+      <div class="affirmation-box">
+        <div class="affirmation-text" id="affirmationText">—</div>
+      </div>
+
+      <div class="mindset-box">
+        <div class="mindset-icon" id="mindsetIcon">—</div>
+        <div class="mindset-info">
+          <div class="k">மனப்பாங்கு வகை</div>
+          <div class="v" id="mindsetText">—</div>
+        </div>
+      </div>
+
+      <div class="strength-box">
+        <div class="strength-title">மனவலிமை அளவுகோல்</div>
+        <div class="strength-row">
+          <div class="s-label"><span>தன்னம்பிக்கை</span><span class="s-pct" id="confPct">—</span></div>
+          <div class="strength-track"><div class="strength-fill" id="confBar"></div></div>
+        </div>
+        <div class="strength-row">
+          <div class="s-label"><span>பொறுமை</span><span class="s-pct" id="patPct">—</span></div>
+          <div class="strength-track"><div class="strength-fill" id="patBar"></div></div>
+        </div>
+        <div class="strength-row">
+          <div class="s-label"><span>அதிர்ஷ்டம்</span><span class="s-pct" id="luckPct">—</span></div>
+          <div class="strength-track"><div class="strength-fill" id="luckBar"></div></div>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-chip wide">
+          <span id="dayVibeEmoji" aria-hidden="true">🌤️</span>
+          <span class="v" id="dayVibeText" style="font-size:.88rem;">—</span>
+        </div>
+        <div class="meta-chip">
+          <div class="k">அதிர்ஷ்ட எண்</div>
+          <div class="v" id="luckyNum">—</div>
+        </div>
+        <div class="meta-chip">
+          <div class="k">அதிர்ஷ்ட நிறம்</div>
+          <div class="swatch" id="luckySwatch" aria-hidden="true"></div>
+          <div class="v" id="luckyColor">—</div>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-chip">
+          <div class="k">அதிர்ஷ்ட நேரம்</div>
+          <div class="v" id="luckyTime">—</div>
+        </div>
+        <div class="meta-chip">
+          <div class="k">அதிர்ஷ்ட சின்னம்</div>
+          <div class="v" id="luckySymbol" style="font-size:1.3rem;">—</div>
+        </div>
+      </div>
+
+      <div class="symbol-explain">
+        <div class="sym-big" id="symBig">—</div>
+        <div class="sym-desc">
+          <div class="k">சின்னத்தின் பொருள்</div>
+          <div class="v" id="symMeaning">—</div>
+        </div>
+      </div>
+
+      <div class="proverb-box">
+        <div class="proverb-tag">பொன்மொழி</div>
+        <div class="proverb-text" id="proverbText">—</div>
+        <div class="proverb-author" id="proverbAuthor">—</div>
+      </div>
+
+      <div class="challenge-box">
+        <div class="challenge-tag">இன்றைய சிறிய சவால்</div>
+        <div class="challenge-text" id="challengeText">—</div>
+      </div>
+
+      <div class="reflect-box">
+        <div class="reflect-text" id="reflectText">—</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="again-btn" id="againBtn" aria-label="மறுபடியும் ஜோசியம் கேட்க">மறுபடியும் கேளுங்க</button>
+        <button class="share-btn" id="shareBtn" aria-label="ஜோசியத்தை பகிர">பகிருங்க 📤</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    ✦ இது வேடிக்கைக்காக மட்டும் — விதிமுறை அடிப்படையில் இயங்குகிறது, தீவிர முடிவுகளுக்கு நம்பாதீங்க 🙂
+  </div>
+
+  <div class="history-section" id="historySection">
+    <div class="history-title">📜 முந்தைய ஜோசியங்கள்</div>
+    <div class="history-list" id="historyList"></div>
+    <button class="history-clear" id="historyClear">வரலாற்றை அழிக்க</button>
+  </div>
+
+  <div class="social-row">
+    <a href="https://www.instagram.com/itz.muthuu?igsh=MXZiNGhqNmpoNGU1bw==" target="_blank" rel="noopener noreferrer" aria-label="இன்ஸ்டாகிராம்">
+      <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+    </a>
+    <a href="https://github.com/muthupriyan-dev" target="_blank" rel="noopener noreferrer" aria-label="கிட்ஹப்">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.64.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.34-1.11.62-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.74-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.04a9.3 9.3 0 0 1 5 0c1.91-1.31 2.75-1.04 2.75-1.04.55 1.42.2 2.47.1 2.73.64.71 1.03 1.62 1.03 2.74 0 3.93-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+    </a>
+    <a href="mailto:smuthupriyan020108@gmail.com" aria-label="மின்னஞ்சல்">
+      <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm17 2.4-7.45 5.5a1 1 0 0 1-1.18 0L4 7.4V18h16V7.4zM4.3 6l7.7 5.68L19.7 6H4.3z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/muthupriyan-s-b76698377" target="_blank" rel="noopener noreferrer" aria-label="லிங்க்ட்இன்">
+      <svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.6H5.6V18h2.74V9.6zM6.97 5.5a1.59 1.59 0 1 0 0 3.17 1.59 1.59 0 0 0 0-3.17zM18.4 18v-4.66c0-2.5-1.33-3.66-3.1-3.66a2.68 2.68 0 0 0-2.43 1.34h-.04V9.6H10.2c.04.78 0 8.4 0 8.4h2.73v-4.69c0-.25.02-.5.1-.68.2-.5.66-1.03 1.43-1.03.99 0 1.4.76 1.4 1.86V18h2.74z"/></svg>
+    </a>
+  </div>
+
+  <div class="footer">🦜 முத்துப்பிரியன் உருவாக்கியது</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="fs-overlay" id="fsOverlay" role="dialog" aria-modal="true" aria-label="கிளி சீட்டு தேர்வு செய்கிறது">
+  <div class="fs-stage" id="fsStage">
+    <div class="fs-parrot" id="fsParrot" aria-hidden="true">🦜</div>
+    <div class="fs-caption" id="fsCaption">கிளி சீட்டு தேடுது...</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- theme ---- */
+  const THEME_KEY = 'kilimind_theme';
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  function applyTheme(theme){
+    body.setAttribute('data-theme', theme);
+    themeToggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+  }
+  (function(){
+    let saved = null;
+    try{ saved = localStorage.getItem(THEME_KEY); }catch(e){}
+    if(saved === 'dark' || saved === 'light') applyTheme(saved);
+  })();
+  function toggleTheme(){
+    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
+  }
+  themeToggle.addEventListener('click', toggleTheme);
+  themeToggle.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleTheme(); }
+  });
+
+  /* ---- mood selector ---- */
+  let selectedMood = '';
+  document.querySelectorAll('.mood-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.mood-btn').forEach(b => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed','false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed','true');
+      selectedMood = btn.getAttribute('data-mood');
+    });
+  });
+
+  /* ---- data ---- */
+  const fortunesByMood = {
+    'மகிழ்ச்சி': [
+      "இன்றைய மகிழ்ச்சி உங்களை மேலும் உயரத்திற்கு அழைத்துச் செல்லும். சந்தோஷத்தை பகிருங்கள்.",
+      "உங்கள் புன்னகை பலரின் மனதை மாற்றும் ஆற்றல் கொண்டது. தொடர்ந்து மகிழ்ந்திருங்கள்.",
+      "இன்று நல்ல செய்தி வரும், ஆனந்தமாக வரவேற்க தயாராக இருங்கள்.",
+    ],
+    'கவலை': [
+      "கவலை ஒரு மேகம் மட்டுமே, சூரியன் எப்போதும் இருக்கிறது. இன்று ஒரு சிறிய நடவடிக்கை எடுங்கள்.",
+      "நீங்கள் நினைப்பதை விட வலிமையானவர். இந்த கடினமான நேரம் கடந்துவிடும்.",
+      "உங்கள் கவலையை யாரிடமாவது பகிருங்கள், மனம் இலகுவாகும்.",
+    ],
+    'தொழில்': [
+      "தொழிலில் ஒரு புதிய வாய்ப்பு கதவு தட்டுகிறது. திறந்து வரவேற்க தயாராக இருங்கள்.",
+      "கடின உழைப்பும் விடாமுயற்சியும் உங்கள் தொழிலை புதிய உயரத்திற்கு கொண்டு செல்லும்.",
+      "இன்று ஒரு முக்கியமான முடிவு எடுக்க வேண்டிய நேரம் வரலாம். நம்பிக்கையுடன் செயல்படுங்கள்.",
+    ],
+    'காதல்': [
+      "இதயத்தில் உள்ளதை சொல்ல இன்று நல்ல நேரம். அன்பை வெளிப்படுத்துங்கள்.",
+      "உறவுகளில் நம்பிக்கையும் பொறுமையும் அவசியம். இன்று ஒரு அன்பான செயல் செய்யுங்கள்.",
+      "காதல் என்பது கொடுப்பதில் உள்ளது. இன்று உங்கள் அன்பானவருக்கு நேரம் ஒதுக்குங்கள்.",
+    ],
+    'பணம்': [
+      "பணம் சம்பந்தமான முடிவுகளில் இன்று கவனமாக இருங்கள். சேமிப்பு முக்கியம்.",
+      "புதிய வருமான வழி ஒன்று திறக்கப்படும். கண்களை திறந்து வைத்திருங்கள்.",
+      "செலவை குறைத்து சேமிப்பை அதிகரித்தால், எதிர்காலம் பிரகாசமாகும்.",
+    ],
+    'பொது': [
+      "இன்று உங்களுக்கு ஒரு புதிய வாய்ப்பு கிடைக்கும். அதை தயங்காமல் பயன்படுத்துங்கள்.",
+      "நீங்கள் நினைத்த காரியம் சாதிக்கப்படும், ஆனால் சிறிது பொறுமை தேவை.",
+      "பழைய நண்பர் ஒருவர் தொடர்பு கொள்வார். அந்த உறவை மதிக்கவும்.",
+      "உங்கள் கடின உழைப்புக்கு தகுந்த பலன் கிட்டும், சற்று தாமதமாக இருந்தாலும்.",
+      "குடும்பத்துடன் செலவிடும் நேரம் இன்று மகிழ்ச்சியைத் தரும்.",
+      "புதிய திறமை ஒன்றை கற்றுக்கொள்ள இது சரியான நேரம்.",
+      "ஒரு கடினமான முடிவை எடுக்க வேண்டிய தருணம் வரும். உள்ளுணர்வை நம்புங்கள்.",
+      "பயணம் ஒன்று உங்களுக்கு புதிய அனுபவத்தைத் தரும்.",
+      "சிறிய தடைகள் வந்தாலும், இறுதியில் வெற்றி உங்களுடையதே.",
+      "நீங்கள் எதிர்பார்க்காத ஒரு நல்ல செய்தி வரும்.",
+      "நம்பிக்கையுடன் இருங்கள் — இந்த வாரம் உங்களுக்கு சாதகமானது.",
+      "இன்று கொடுக்கும் உதவி, எதிர்காலத்தில் பல மடங்கு திரும்பி வரும்.",
+    ]
+  };
+
+  const affirmations = [
+    "🌿 நான் தினமும் முன்னேறிக் கொண்டிருக்கிறேன்.",
+    "🌸 என்னிடம் எல்லாவற்றையும் சாதிக்கும் ஆற்றல் இருக்கிறது.",
+    "☀️ நான் அன்பு, ஆரோக்கியம், மகிழ்ச்சி பெற தகுதியுடையவன்.",
+    "💪 என்னுடைய முயற்சி என்னை வெற்றியடையச் செய்யும்.",
+    "🌊 ஒவ்வொரு நாளும் புதிய தொடக்கம்.",
+    "🦋 நான் மாற்றத்திற்கு தயாராக இருக்கிறேன்.",
+    "✨ என்னுடைய கனவுகள் நிறைவேறும்.",
+    "🎯 நான் என் இலக்கை நோக்கி தினமும் முன்னேறுகிறேன்.",
+    "🌺 என்னை சுற்றியிருப்போர் என்னை அன்பு செய்கிறார்கள்.",
+    "🔆 நான் என் வாழ்க்கையை சிறப்பாக்கும் சக்தி உடையவன்.",
+  ];
+
+  const mindsets = [
+    { icon:'🌞', text:'நம்பிக்கையாளர்' },
+    { icon:'🧘', text:'அமைதியான சிந்தனையாளர்' },
+    { icon:'🔥', text:'இலட்சியவாதி' },
+    { icon:'💡', text:'படைப்பாற்றல் மிக்கவர்' },
+    { icon:'❤️', text:'அன்பான உள்ளம்' },
+  ];
+
+  const colors = [
+    {name:"செம்மண் சிவப்பு", hex:"#B23A48"},
+    {name:"தங்க மஞ்சள்", hex:"#D9A441"},
+    {name:"பச்சை", hex:"#4F8B5B"},
+    {name:"நீலம்", hex:"#3E6FA8"},
+    {name:"ஊதா", hex:"#7A4F9E"},
+    {name:"வெள்ளை", hex:"#E8E2D4"}
+  ];
+
+  const dayVibes = [
+    {emoji:"🌤️", text:"இன்று நல்ல நாள் - முயற்சிகள் வெற்றி பெறும்"},
+    {emoji:"⚡", text:"சவாலான நாள், ஆனா முடிவு நல்லதா இருக்கும்"},
+    {emoji:"🌱", text:"அமைதியான நாள் - ஓய்வும் சிந்தனையும் தேவை"},
+    {emoji:"🔥", text:"ஆர்வமுள்ள நாள் - புதிய காரியங்களில் கவனம் வைக்கலாம்"},
+    {emoji:"🌧️", text:"சற்று கவனமா இருக்கவேண்டிய நாள்"},
+    {emoji:"✨", text:"அதிர்ஷ்டம் கூடுதலா இருக்கும் நாள்"},
+    {emoji:"🌙", text:"அமைதியா யோசிக்க வேண்டிய நாள்"}
+  ];
+
+  const proverbs = [
+    { text:"முயற்சி திருவினையாக்கும்.", author:"— திருவள்ளுவர்" },
+    { text:"கற்றது கைமண் அளவு, கல்லாதது உலகளவு.", author:"— திருவள்ளுவர்" },
+    { text:"யாகாவராயினும் நாகாக்க காவாக்காற் சோகாப்பர் சொல்லிழுக்குப் பட்டு.", author:"— திருவள்ளுவர்" },
+    { text:"ஆடு மேய்க்கும் பையனும் நாட்டை ஆளலாம்.", author:"— அவ்வையார்" },
+    { text:"ஒருமைக்கண் தான்கற்ற கல்வி, ஒருவற்கு எழுமையும் ஏமாப்புடைத்து.", author:"— திருவள்ளுவர்" },
+    { text:"கனவுகளைப் பின்தொடருங்கள், அவை உங்களை வழிநடத்தும்.", author:"— அப்துல் கலாம்" },
+    { text:"தோல்வி என்பது வெற்றிக்கான முதல் படி.", author:"— அப்துல் கலாம்" },
+    { text:"சிந்தனை செயலாக மாறும்போது கனவுகள் நனவாகும்.", author:"— அப்துல் கலாம்" },
+    { text:"வீரம் என்பது பயமின்மை அல்ல, பயத்தை வென்று முன்செல்வதே.", author:"— பாரதியார்" },
+    { text:"எல்லோரும் இந்த நாட்டிற்குச் சேவை செய்யுங்கள்.", author:"— பாரதியார்" },
+    { text:"விடியல் வரும் என்று நம்பு, இருளை வெல்லும் வெளிச்சம்.", author:"— பாரதியார்" },
+    { text:"தன்னம்பிக்கை தான் வாழ்வின் அடித்தளம்.", author:"— அவ்வையார்" },
+  ];
+
+  const luckySymbols = [
+    { sym:'☀️', name:'சூரியன்', meaning:'புதிய தொடக்கம் — ஒவ்வொரு விடியலும் புதிய வாய்ப்பு' },
+    { sym:'🌙', name:'நிலா', meaning:'அமைதி — மனத்தை ஒருமுகப்படுத்தும் நேரம்' },
+    { sym:'⭐', name:'நட்சத்திரம்', meaning:'நம்பிக்கை — உங்கள் ஒளி அணையாது' },
+    { sym:'🍀', name:'நான்கு இலை', meaning:'நல்ல வாய்ப்பு — அதிர்ஷ்டம் உங்களை தேடி வரும்' },
+    { sym:'🔥', name:'தீபம்', meaning:'வெற்றி — உள்ளுறை ஆற்றல் வெளிப்படும்' },
+    { sym:'💎', name:'வைரம்', meaning:'மதிப்புமிக்க சாதனை — நீங்கள் அரிதானவர்' },
+    { sym:'🌺', name:'மலர்', meaning:'அழகும் அன்பும் — இன்று உறவுகள் மலரும்' },
+    { sym:'🪔', name:'விளக்கு', meaning:'ஞானம் — அறிவொளி உங்களை வழிநடத்தும்' },
+    { sym:'🕉️', name:'ஓம்', meaning:'ஆன்மிக வலிமை — உள்ளமே கோவில்' },
+  ];
+
+  const challenges = [
+    "🎯 இன்று 30 நிமிடங்கள் படிக்கவும் அல்லது புதிய விஷயம் ஒன்றை கற்றுக்கொள்ளவும்.",
+    "🎯 ஒரு நண்பருடன் அல்லது குடும்பத்தினருடன் மனம்விட்டு பேசவும்.",
+    "🎯 இன்று ஒரு நல்ல செயல் செய்யுங்கள் — யாருக்காவது உதவுங்கள்.",
+    "🎯 10 நிமிடம் தியானம் அல்லது ஆழ்ந்த சுவாசப் பயிற்சி செய்யுங்கள்.",
+    "🎯 நீண்ட நாட்களாக தள்ளிப்போட்ட ஒரு காரியத்தை இன்று தொடங்குங்கள்.",
+    "🎯 இன்று ஒரு புதிய இடம் அல்லது புத்தகம் ஆராயுங்கள்.",
+    "🎯 நன்றி சொல்ல வேண்டிய ஒருவருக்கு இன்றே சொல்லுங்கள்.",
+    "🎯 உங்கள் ஆரோக்கியத்திற்காக ஒரு சிறிய நடைப்பயிற்சி போடுங்கள்.",
+    "🎯 தனிமையில் 15 நிமிடம் உங்கள் கனவுகளை பற்றி எழுதுங்கள்.",
+    "🎯 ஒரு நேர்மறை விஷயத்தை தினசரி குறிப்பேட்டில் எழுதுங்கள்.",
+  ];
+
+  const reflections = [
+    "🤔 இன்று நீங்கள் நன்றி சொல்ல வேண்டிய ஒரு விஷயம் என்ன?",
+    "🤔 இந்த வாரத்தில் நீங்கள் சாதிக்க விரும்புவது என்ன?",
+    "🤔 உங்களுக்கு மகிழ்ச்சி தருவது எது?",
+    "🤔 இன்று நீங்கள் கற்றுக்கொண்ட ஒன்று என்ன?",
+    "🤔 உங்கள் வாழ்க்கையில் யாரை அதிகம் நேசிக்கிறீர்கள்?",
+    "🤔 இந்த தருணத்தில் உங்களுக்கு என்ன தேவை?",
+    "🤔 நாளை நீங்கள் வேறுவிதமாக என்ன செய்வீர்கள்?",
+    "🤔 உங்கள் ஒரு வலிமை என்ன என்று நினைக்கிறீர்கள்?",
+  ];
+
+  const loadingCaptions = [
+    "கிளி சீட்டு தேடுது...",
+    "அதிர்ஷ்ட சீட்டை பார்க்குது...",
+    "உங்க விதியை ஆராயுது...",
+    "கொஞ்சம் பொறுங்க...",
+    "நல்ல செய்தி தேடுது...",
+    "உங்களுக்கான சீட்டை தேர்வு செய்கிறது..."
+  ];
+
+  function randomCaption(exclude){
+    let pick;
+    do{ pick = loadingCaptions[Math.floor(Math.random()*loadingCaptions.length)]; }
+    while(loadingCaptions.length > 1 && pick === exclude);
+    return pick;
+  }
+
+  function seedFromInput(name, dob){
+    let str = (name||"kili") + (dob||"0000-00-00");
+    let seed = 0;
+    for(let i=0;i<str.length;i++) seed = (seed * 31 + str.charCodeAt(i)) % 100000;
+    return seed;
+  }
+
+  function seededRandom(seed, offset){
+    return ((seed * 1664525 + offset * 1013904223) & 0x7fffffff) / 0x7fffffff;
+  }
+
+  function luckyTimeFromSeed(seed){
+    const hour12 = (seed % 12) + 1;
+    const minute = Math.floor(seed / 7) % 60;
+    const isAm = (seed % 2 === 0);
+    const period = isAm ? "காலை" : "மாலை";
+    return `${hour12}:${minute.toString().padStart(2,'0')} ${period}`;
+  }
+
+  /* ---- validation ---- */
+  const nameInput = document.getElementById('nameInput');
+  const nameMsg = document.getElementById('nameMsg');
+
+  function validateName(showMsg){
+    const raw = nameInput.value;
+    const trimmed = raw.trim();
+    let error = '';
+    if(trimmed.length === 0) error = "பெயரை எழுதுங்க, கிளிக்கு தெரியணும்!";
+    else if(trimmed.length < 2) error = "குறைந்தது 2 எழுத்துகள் வேண்டும்.";
+    else if(!/[A-Za-zஅ-ஹா-௹]/.test(trimmed)) error = "சரியான பெயரை உள்ளிடுங்க.";
+    if(error){
+      if(showMsg){
+        nameMsg.textContent = error;
+        nameMsg.classList.add('show');
+        nameInput.setAttribute('aria-invalid','true');
+      }
+      return null;
+    }
+    nameMsg.classList.remove('show');
+    nameInput.removeAttribute('aria-invalid');
+    return trimmed;
+  }
+
+  nameInput.addEventListener('input', () => {
+    if(nameMsg.classList.contains('show')) validateName(true);
+  });
+
+  /* ---- history ---- */
+  const HISTORY_KEY = 'kilimind_history';
+  const historySection = document.getElementById('historySection');
+  const historyList = document.getElementById('historyList');
+  const historyClear = document.getElementById('historyClear');
+
+  function loadHistory(){
+    try{ const r = localStorage.getItem(HISTORY_KEY); return r ? JSON.parse(r) : []; }catch(e){ return []; }
+  }
+  function saveHistory(list){
+    try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(list)); }catch(e){}
+  }
+  function addHistoryEntry(name, fortuneText){
+    const list = loadHistory();
+    list.unshift({ name, date: new Date().toLocaleDateString('ta-IN',{day:'numeric',month:'short',year:'numeric'}), fortune: fortuneText });
+    saveHistory(list.slice(0,5));
+    renderHistory();
+  }
+  function renderHistory(){
+    const list = loadHistory();
+    if(list.length === 0){ historySection.classList.remove('show'); return; }
+    historySection.classList.add('show');
+    historyList.innerHTML = '';
+    list.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'history-item';
+      const sn = (item.name||'').replace(/</g,'&lt;');
+      const sf = (item.fortune||'').replace(/</g,'&lt;');
+      el.innerHTML = `<div class="hi-top"><span>${sn}</span><span class="hi-date">${item.date||''}</span></div><div class="hi-fortune">${sf}</div>`;
+      historyList.appendChild(el);
+    });
+  }
+  historyClear.addEventListener('click', () => { saveHistory([]); renderHistory(); showToast('வரலாறு அழிக்கப்பட்டது'); });
+  renderHistory();
+
+  /* ---- toast ---- */
+  const toastEl = document.getElementById('toast');
+  let toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
+  }
+
+  /* ---- core elements ---- */
+  const dobInput = document.getElementById('dobInput');
+  const askBtn = document.getElementById('askBtn');
+  const resultBox = document.getElementById('resultBox');
+  const againBtn = document.getElementById('againBtn');
+  const shareBtn = document.getElementById('shareBtn');
+  const fsOverlay = document.getElementById('fsOverlay');
+  const fsStage = document.getElementById('fsStage');
+  const fsParrot = document.getElementById('fsParrot');
+  const fsCaption = document.getElementById('fsCaption');
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function vw(){ return window.innerWidth; }
+  function vh(){ return window.innerHeight; }
+
+  let lastFortuneSnapshot = null;
+
+  function buildFsCards(count, symList){
+    fsStage.querySelectorAll('.fs-card').forEach(c => c.remove());
+    const positions = [];
+    const margin = 36;
+    const cardW = vw() < 380 ? 36 : 42;
+    for(let i=0;i<count;i++){
+      const left = margin + Math.random() * Math.max(20, vw() - margin*2 - cardW);
+      const top = vh()*0.18 + Math.random() * (vh()*0.5);
+      positions.push({left, top});
+      const card = document.createElement('div');
+      card.className = 'fs-card';
+      card.style.left = left+'px';
+      card.style.top = top+'px';
+      card.style.transform = `rotate(${(Math.random()*30-15).toFixed(1)}deg)`;
+      card.setAttribute('aria-hidden','true');
+      card.innerHTML = `<span class="sym-back">✦</span><span class="sym-front">${symList[i].sym}</span>`;
+      fsStage.appendChild(card);
+      requestAnimationFrame(() => setTimeout(() => card.classList.add('in'), i*40));
+    }
+    return positions;
+  }
+
+  function animateBars(seed){
+    const conf = 40 + Math.round(seededRandom(seed, 1) * 55);
+    const pat  = 35 + Math.round(seededRandom(seed, 2) * 60);
+    const luck = 30 + Math.round(seededRandom(seed, 3) * 65);
+
+    document.getElementById('confPct').textContent = conf + '%';
+    document.getElementById('patPct').textContent  = pat  + '%';
+    document.getElementById('luckPct').textContent = luck + '%';
+
+    setTimeout(() => {
+      document.getElementById('confBar').style.width = conf + '%';
+      document.getElementById('patBar').style.width  = pat  + '%';
+      document.getElementById('luckBar').style.width = luck + '%';
+    }, 300);
+  }
+
+  function showFortuneResult(name, dob, symbol){
+    const seed = seedFromInput(name, dob || new Date().toDateString());
+
+    const moodKey = selectedMood || 'பொது';
+    const fortuneList = fortunesByMood[moodKey] || fortunesByMood['பொது'];
+    const fortune = fortuneList[seed % fortuneList.length];
+
+    const luckyNumber = (seed % 99) + 1;
+    const color = colors[seed % colors.length];
+    const vibe = dayVibes[(seed + 3) % dayVibes.length];
+    const proverb = proverbs[(seed + 7) % proverbs.length];
+    const time = luckyTimeFromSeed(seed);
+    const affirmation = affirmations[(seed + 5) % affirmations.length];
+    const mindset = mindsets[(seed + 2) % mindsets.length];
+    const challenge = challenges[(seed + 11) % challenges.length];
+    const reflection = reflections[(seed + 13) % reflections.length];
+
+    const symIdx = symbol ? luckySymbols.findIndex(s => s.sym === symbol) : seed % luckySymbols.length;
+    const symObj = luckySymbols[symIdx >= 0 ? symIdx : seed % luckySymbols.length];
+
+    document.getElementById('resName').textContent = name + " அவர்களுக்கு";
+    document.getElementById('fortuneText').textContent = fortune;
+    document.getElementById('affirmationText').textContent = affirmation;
+    document.getElementById('mindsetIcon').textContent = mindset.icon;
+    document.getElementById('mindsetText').textContent = mindset.text;
+    document.getElementById('luckyNum').textContent = luckyNumber;
+    document.getElementById('luckyColor').textContent = color.name;
+    document.getElementById('luckySwatch').style.background = color.hex;
+    document.getElementById('dayVibeEmoji').textContent = vibe.emoji;
+    document.getElementById('dayVibeText').textContent = vibe.text;
+    document.getElementById('proverbText').textContent = proverb.text;
+    document.getElementById('proverbAuthor').textContent = proverb.author;
+    document.getElementById('luckyTime').textContent = time;
+    document.getElementById('luckySymbol').textContent = symObj.sym;
+    document.getElementById('symBig').textContent = symObj.sym;
+    document.getElementById('symMeaning').textContent = symObj.name + ' — ' + symObj.meaning;
+    document.getElementById('challengeText').textContent = challenge;
+    document.getElementById('reflectText').textContent = reflection;
+
+    // reset bars first
+    document.getElementById('confBar').style.width = '0%';
+    document.getElementById('patBar').style.width = '0%';
+    document.getElementById('luckBar').style.width = '0%';
+
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({behavior: prefersReducedMotion ? 'auto' : 'smooth', block:'center'});
+    animateBars(seed);
+
+    lastFortuneSnapshot = { name, fortune, luckyNumber, colorName: color.name, time, symbol: symObj.sym };
+    addHistoryEntry(name, fortune);
+  }
+
+  function runFortune(){
+    const name = validateName(true);
+    if(!name){ nameInput.focus(); return; }
+    const dob = dobInput.value;
+
+    askBtn.disabled = true;
+    const seed = seedFromInput(name, dob || new Date().toDateString());
+    const cardCount = luckySymbols.length;
+    const chosenIndex = seed % cardCount;
+    const chosenSymbol = luckySymbols[chosenIndex];
+
+    fsOverlay.classList.add('active');
+    fsCaption.textContent = randomCaption(null);
+
+    if(prefersReducedMotion){
+      buildFsCards(cardCount, luckySymbols);
+      setTimeout(() => {
+        const cardEls = fsStage.querySelectorAll('.fs-card');
+        cardEls.forEach((el, ci) => {
+          if(ci === chosenIndex){ el.classList.add('picked','revealed'); }
+          else{ el.classList.add('faded'); }
+        });
+        fsCaption.textContent = "உங்க ஜோசியம் இங்க!";
+        setTimeout(() => {
+          fsOverlay.classList.remove('active');
+          showFortuneResult(name, dob, chosenSymbol.sym);
+          askBtn.disabled = false;
+        }, 250);
+      }, 200);
+      return;
+    }
+
+    const positions = buildFsCards(cardCount, luckySymbols);
+    fsParrot.style.left = (vw()/2 - 30)+'px';
+    fsParrot.style.top  = (vh()*0.08)+'px';
+
+    const stops = 4;
+    let visited = [];
+    for(let s=0;s<stops-1;s++){
+      let idx;
+      do{ idx = Math.floor(Math.random()*cardCount); } while(visited.includes(idx) || idx===chosenIndex);
+      visited.push(idx);
+    }
+    visited.push(chosenIndex);
+
+    let delay = 600;
+    const stepGap = 420;
+    let lastCaption = fsCaption.textContent;
+    visited.forEach((idx, i) => {
+      setTimeout(() => {
+        const pos = positions[idx];
+        fsParrot.style.left = (pos.left - 14)+'px';
+        fsParrot.style.top  = (pos.top - 50)+'px';
+        if(i > 0 && i < visited.length - 1){
+          const cap = randomCaption(lastCaption);
+          lastCaption = cap;
+          fsCaption.textContent = cap;
+        }
+        setTimeout(() => {
+          fsParrot.classList.remove('peck');
+          void fsParrot.offsetWidth;
+          fsParrot.classList.add('peck');
+          const cardEls = fsStage.querySelectorAll('.fs-card');
+          if(i === visited.length - 1){
+            fsCaption.textContent = "சீட்டு கிடைச்சுது!";
+            cardEls.forEach((el, ci) => {
+              if(ci === idx){ el.classList.add('picked','revealed'); }
+              else{ el.classList.add('faded'); }
+            });
+            const chosenEl = cardEls[idx];
+            setTimeout(() => {
+              const rect = chosenEl.getBoundingClientRect();
+              const flyX = (vw()/2) - (rect.left + rect.width/2);
+              const flyY = (vh()/2) - (rect.top + rect.height/2) - 40;
+              chosenEl.style.setProperty('--flyx', flyX+'px');
+              chosenEl.style.setProperty('--flyy', flyY+'px');
+              chosenEl.classList.add('flyout');
+              fsCaption.textContent = "உங்க ஜோசியம் இங்க!";
+              setTimeout(() => {
+                fsOverlay.classList.remove('active');
+                showFortuneResult(name, dob, chosenSymbol.sym);
+                askBtn.disabled = false;
+              }, 600);
+            }, 500);
+          }
+        }, 80);
+      }, delay);
+      delay += stepGap;
+    });
+  }
+
+  /* ---- triggers ---- */
+  askBtn.addEventListener('click', runFortune);
+  nameInput.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); runFortune(); } });
+  dobInput.addEventListener('keydown', e => { if(e.key==='Enter'){ e.preventDefault(); runFortune(); } });
+
+  /* ---- reset / share ---- */
+  againBtn.addEventListener('click', () => {
+    resultBox.classList.remove('show');
+    nameInput.value = '';
+    dobInput.value = '';
+    nameMsg.classList.remove('show');
+    nameInput.removeAttribute('aria-invalid');
+    document.querySelectorAll('.mood-btn').forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed','false'); });
+    selectedMood = '';
+    setTimeout(() => nameInput.focus(), 250);
+  });
+
+  shareBtn.addEventListener('click', async () => {
+    if(!lastFortuneSnapshot) return;
+    const s = lastFortuneSnapshot;
+    const shareText = `${s.name} - இன்றைய ஜோசியம்: ${s.fortune}\nஅதிர்ஷ்ட எண்: ${s.luckyNumber} | நிறம்: ${s.colorName} | நேரம்: ${s.time} | சின்னம்: ${s.symbol}\n🦜 கிளிமைண்ட்`;
+    if(navigator.share){
+      try{ await navigator.share({ title:'கிளிமைண்ட் — கிளி ஜோசியம்', text: shareText, url: location.href }); return; }
+      catch(e){}
+    }
+    try{
+      await navigator.clipboard.writeText(shareText + '\n' + location.href);
+      showToast('கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது! 📋');
+    }catch(e){
+      showToast('பகிர முடியவில்லை, மறுபடியும் முயற்சிக்கவும்.');
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
